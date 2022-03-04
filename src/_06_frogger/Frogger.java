@@ -6,8 +6,8 @@ public class Frogger extends PApplet {
     static final int WIDTH = 800;
     static final int HEIGHT = 600;
     int frogX = 440;
-    int frogY = 550;
-    
+    int frogY = 540;
+ 
     @Override
     public void settings() {
         size(WIDTH, HEIGHT);
@@ -15,14 +15,18 @@ public class Frogger extends PApplet {
 
     @Override
     public void setup() {
+    	 int CarX = 0;
+    	
     }
-
-    @Override
+    	
     public void draw() {
     	background(0,0,200);
     	fill(0, 140, 20);
     	ellipse(frogX, frogY, 100, 100);
+    	display();
+   
     }
+
     static public void main(String[] args) {
         PApplet.main(Frogger.class.getName());
     }
@@ -32,31 +36,39 @@ public class Frogger extends PApplet {
             if(keyCode == UP)
             {
                 //Frog Y position goes up
-            	frogY= frogY-50;
+            	frogY= frogY-20;
             }
             else if(keyCode == DOWN)
             {
                 //Frog Y position goes down 
-            	frogY= frogY+50;
+            	frogY= frogY+20;
             }
             else if(keyCode == RIGHT)
             {
                 //Frog X position goes right
-            	frogX = frogX+50;
+            	frogX = frogX+20;
             }
             else if(keyCode == LEFT)
             {
                 //Frog X position goes left
-            	frogX = frogX-50;
+            	frogX = frogX-20;
             }
         }
     }
+    
     public void check() {
-    	if(frogY >= 600) {
-    		frogY = 100;
+    	if(frogY >= 800) {
+    		frogY = 700;
     	}
-    	else if(frogY<=0) {
-    		frogY = 100;
+    	else if(frogY == 0) {
+    		frogY=100;
+    	}
+    	else if(frogX >= 600) {
+    			
+    	frogX = 540;
+    		}
+    	else if(frogX == 0) {
+    		frogX = 100;
     	}
     }
 }
