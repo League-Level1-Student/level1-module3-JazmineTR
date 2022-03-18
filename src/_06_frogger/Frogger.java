@@ -15,16 +15,20 @@ public class Frogger extends PApplet {
 
     @Override
     public void setup() {
-    	 int CarX = 0;
-    	
+    	 int CarX;
+    	int car;
+    	int carSize;
+    	int carSpeed;
+    	Car buddy = new Car(400,400,200,20);
+    	buddy.display();
+    	Car right = new Car(200,400, 200,20);
+    	right.display();
     }
     	
     public void draw() {
     	background(0,0,200);
     	fill(0, 140, 20);
-    	ellipse(frogX, frogY, 100, 100);
-    	display();
-   
+    	ellipse(frogX, frogY, 100,100);
     }
 
     static public void main(String[] args) {
@@ -55,21 +59,20 @@ public class Frogger extends PApplet {
             }
         }
     }
+        public void check() {
+        	if(frogY >= 800) {
+        		frogY=10;
+        	}
+        	else if(frogY == 0) {
+        		frogY=10;
+        	}
+        	else if(frogX >= 600) {
+        			
+        	frogX = 540;
+        		}
+        	else if(frogX == 0) {
+        		frogX = 100;
+        	}
+        }
     
-    public void check() {
-    	if(frogY >= 800) {
-    		frogY = 700;
-    	}
-    	else if(frogY == 0) {
-    		frogY=100;
-    	}
-    	else if(frogX >= 600) {
-    			
-    	frogX = 540;
-    		}
-    	else if(frogX == 0) {
-    		frogX = 100;
-    	}
-    }
 }
-
