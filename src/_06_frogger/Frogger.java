@@ -23,12 +23,16 @@ public class Frogger extends PApplet {
     	buddy.display();
     	Car right = new Car(200,400, 200,20);
     	right.display();
+   
     }
-    	
     public void draw() {
     	background(0,0,200);
     	fill(0, 140, 20);
     	ellipse(frogX, frogY, 100,100);
+    	fill(210,10,0);
+    	rect(100,300,200,50);
+    	rect(500,100, 200,50);
+    	
     }
 
     static public void main(String[] args) {
@@ -61,17 +65,23 @@ public class Frogger extends PApplet {
     }
         public void check() {
         	if(frogY >= 800) {
-        		frogY=10;
+        		draw();
         	}
         	else if(frogY == 0) {
-        		frogY=10;
+        		frogY=730;
+        		draw();
         	}
         	else if(frogX >= 600) {
-        			
         	frogX = 540;
+        	draw();
         		}
         	else if(frogX == 0) {
         		frogX = 100;
+        		draw();
+        	}
+        	else {
+        		frogX=frogX;
+        		frogY=frogY;
         	}
         }
     

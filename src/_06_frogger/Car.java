@@ -1,5 +1,5 @@
 package _06_frogger;
-import processing.core.PApplet;
+
 public class Car {
 
 	
@@ -14,9 +14,10 @@ Car(int CarX, int CarY, int CarSize, int CarSpeed){
 	this.CarSize = CarSize;
 	this.CarSpeed = CarSpeed;
 }
+
 public void display()
 {
-  fill(255,0,0);
+  fill(0,0,255);
   rect(CarX , CarY,  CarSize, CarSpeed);
 }
 private void rect(int carX2, int carY2, int carSize2, int carSpeed2) {
