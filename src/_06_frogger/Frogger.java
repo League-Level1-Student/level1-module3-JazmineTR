@@ -9,6 +9,7 @@ public class Frogger extends PApplet {
 	int frogY = 540;
 	Car buddy = new Car(300, 200, 200, 50);
 	Car right = new Car(500, 400, 200, 50);
+	
 	@Override
 	public void settings() {
 		size(WIDTH, HEIGHT);
@@ -28,8 +29,11 @@ public class Frogger extends PApplet {
 		right.display();
 		check();
 		buddy.moveLeft();
+		right.moveRight();
+		intersects(right);
+		intersects(buddy);
 	}
-
+	
 	static public void main(String[] args) {
 		PApplet.main(Frogger.class.getName());
 	}
@@ -67,6 +71,17 @@ public class Frogger extends PApplet {
 
 		}
 	}
+	public boolean intersects(Car car) {
+		 if ((frogY > car.getY() && frogY < car.getY()+50) && (frogX > car.getX() && frogX < car.getX()+car.getSize())) {
+			 frogY=540;
+			   frogX=440;
+			 return true;
+			  }
+			 else  {
+			  return false;
+			 }
+			 
+		 }
 
 	class Car {
 
@@ -88,11 +103,29 @@ public class Frogger extends PApplet {
 		}
 
 		public void moveLeft() {
-			CarX = CarX - 20;
+			CarX = CarX - 5;
+			if(CarX == -20) {
+				CarX = 620;
+				
+			}
 		}
 		public void moveRight() {
+			CarX = CarX +5;
+			if(CarX == 620) {
+				CarX = 20;
+			}
+		}
+		public int getX() {
+			return CarX;
+		}
+		public int getY() {
+			return CarY;
+		}
+		public int getSize() {
+			return CarSize;
 			
 		}
-	}
-
+		
+	
+}
 }
